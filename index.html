@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message ✨</title>
+    <!-- استيراد خط رومانسي وجميل من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        /* تنسيق الصفحات */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95);
+            padding: 20px;
+        }
+
+        /* الصفحة النشطة حالياً */
+        .page.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+
+        /* --- تأثيرات الخلفيات المتحركة --- */
+        
+        /* الصفحة 1: خلفية أنمي رومانسية متحركة ببطء */
+        #page1 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                              url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3N0aXU4OHp0dzh5NzV5Mm45ZzZicWpsY3p0Ymd4bXN0Y3FhcWp6ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L8GfD39g0979u/giphy.gif');
+            /* ملاحظة: يمكنك تغيير رابط الـ GIF أعلاه لأي أنمي رومانسي تفضله */
+        }
+
+        /* الصفحة 2 والصفحة 3: خلفية طبيعة متحركة ساحرة */
+        #page2, #page3 {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                              url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp0ZXp0MDZid3pwN3FwOHM2M3BwNmwwaDJkcGswNjN3MGhxcmZ0MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vncv1Thv7iW6k/giphy.gif');
+        }
+
+        /* النصوص */
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+            margin-bottom: 40px;
+            font-weight: 600;
+            animation: textPulse 2s infinite alternate;
+        }
+
+        /* النصوص بالخط الرومانسي في الصفحة الأخيرة */
+        .romantic-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            color: #fff;
+            text-shadow: 0 0 20px #ff758c, 0 0 30px #ff758c;
+            line-height: 1.3;
+        }
+
+        @keyframes textPulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.03); }
+        }
+
+        /* تصميم الأزرار العام */
+        .btn-container {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: white;
+            min-width: 140px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        }
+
+        /* ألوان الأزرار الخاصة */
+        .btn-blue { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+        .btn-purple { background: linear-gradient(45deg, #b180ff, #8946ff); }
+        
+        .btn-green { 
+            background: linear-gradient(45deg, #11998e, #38ef7d); 
+        }
+        
+        .btn-red { 
+            background: linear-gradient(45deg, #ff416c, #ff4b2b); 
+            position: relative;
+            z-index: 10;
+        }
+
+        /* تأثير القلوب المتساقطة في النهاية */
+        .heart {
+            position: absolute;
+            color: #ff758c;
+            font-size: 20px;
+            animation: fall linear forwards;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الصفحة الأولى -->
+    <div id="page1" class="page active">
+        <h1>Hey Ola, hru? Are u ready?</h1>
+        <div class="btn-container">
+            <button class="btn btn-blue" onclick="nextPage(2)">Yes</button>
+            <button class="btn btn-purple" onclick="nextPage(2)">Oui</button>
+        </div>
+    </div>
+
+    <!-- الصفحة الثانية -->
+    <div id="page2" class="page">
+        <h1>Can I see ur feet? 🥺</h1>
+        <div class="btn-container" id="btnContainer2">
+            <button id="yesBtn" class="btn btn-green" onclick="goToFinalPage()">Yes u can bby</button>
+            <button id="noBtn" class="btn btn-red" onmouseover="dodgeButton()" onclick="dodgeButton()">No sorry</button>
+        </div>
+    </div>
+
+    <!-- الصفحة الثالثة (الأخيرة) -->
+    <div id="page3" class="page">
+        <h1 class="romantic-text">Ohh u wanna show me ur feet yayy!<br>I'm waiting for it... 👀❤️</h1>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let scaleAmount = 1;
+
+        // دالة التنقل بين الصفحات
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+
+        // دالة هروب الزر وتكبير الزر الأخضر
+        function dodgeButton() {
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            
+            clickCount++;
+
+            // 1. جعل الزر الأحمر يهرب بأبعاد عشوائية تناسب الشاشة
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 40) + 20;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 40) + 20;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            // 2. تكبير الزر الأخضر تدريجياً في كل مرة يهرب فيها الزر الأحمر
+            scaleAmount += 0.3;
+            yesBtn.style.transform = `scale(${scaleAmount})`;
+
+            // 3. اختفاء الزر الأحمر تماماً بعد المحاولة الرابعة أو الخامسة
+            if (clickCount >= 4) {
+                noBtn.style.display = 'none';
+            }
+        }
+
+        // الانتقال للصفحة الأخيرة وتشغيل تأثير القلوب
+        function goToFinalPage() {
+            nextPage(3);
+            setInterval(createHeart, 300); // بدء تساقط القلوب الرومانسية
+        }
+
+        // دالة إنشاء القلوب المتساقطة في الصفحة الأخيرة
+        function createHeart() {
+            if (!document.getElementById('page3').classList.contains('active')) return;
+            
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.fontScale = Math.random() * 20 + 10 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            
+            document.getElementById('page3').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
